@@ -206,7 +206,48 @@ function CoursePage() {
             {session ? "Generate again" : "Generate QR code"}
           </Button>
         </Card>
-...
+
+        <Card className="p-5 flex flex-col items-center justify-center text-center min-h-[360px]">
+          {!session ? (
+            <div className="text-muted-foreground space-y-2">
+              <QrCode className="h-12 w-12 mx-auto opacity-30" />
+              <p>QR will appear here</p>
+            </div>
+          ) : expired ? (
+            <div className="space-y-3">
+              <div className="h-[320px] w-[320px] mx-auto rounded-lg border-2 border-dashed grid place-items-center text-muted-foreground">
+                Expired
+              </div>
+              <p className="text-sm text-destructive font-medium">
+                QR expired. Click "Generate again" to issue a new one.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {qrUrl && (
+                <div className="relative inline-block">
+                  <img
+                    src={qrUrl}
+                    alt="Attendance QR"
+                    className="rounded-lg border bg-white"
+                  />
+                  <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground rounded-full h-12 w-12 grid place-items-center font-semibold shadow-lg">
+                    {remaining}s
+                  </div>
+                </div>
+              )}
+              <div className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
+                <Clock className="h-4 w-4" />
+                Valid for {remaining} more second{remaining === 1 ? "" : "s"}
+              </div>
+              <p className="text-xs text-muted-foreground break-all max-w-xs">
+                {link}
+              </p>
+            </div>
+          )}
+        </Card>
+      </div>
+
       <Card className="p-5">
         <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
           <h2 className="font-medium flex items-center gap-2">
