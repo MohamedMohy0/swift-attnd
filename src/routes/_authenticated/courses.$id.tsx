@@ -94,7 +94,7 @@ function CoursePage() {
           lng,
           radiusM: radius,
         },
-      }),
+      }) as Promise<{ id: string; token: string; expires_at: string; session_date: string }>,
     onSuccess: (row) => {
       setSession(row);
       toast.success("QR generated — valid for 60 seconds");
