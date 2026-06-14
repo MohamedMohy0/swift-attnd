@@ -10,7 +10,7 @@ import { GraduationCap } from "lucide-react";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Doctor sign in — Attendance" },
+      { title: "Instractor sign in  Attendance" },
       { name: "description", content: "Sign in with Google to manage your course attendance." },
     ],
   }),
@@ -49,7 +49,7 @@ function AuthPage() {
           <GraduationCap className="h-7 w-7" />
         </div>
         <div className="space-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Doctor Sign In</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
           <p className="text-sm text-muted-foreground">
             Use your Google account to manage courses and take attendance.
           </p>

@@ -25,7 +25,7 @@ function Landing() {
           <span>Attendance</span>
         </div>
         <Button asChild>
-          <Link to="/auth">Doctor sign in</Link>
+          <Link to="/auth">sign in</Link>
         </Button>
       </header>
 
@@ -37,7 +37,7 @@ function Landing() {
             verified by location.
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Doctors sign in with Google, generate a QR valid for 60 seconds, and
+            Instractor sign in with Google, generate a QR valid for 60 seconds, and
             students check in by scanning it. Location and IP rules stop
             anyone from signing for a friend.
           </p>
@@ -56,7 +56,7 @@ function Landing() {
             Students must be physically inside your set radius to check in.
           </Feature>
           <Feature icon={<ShieldCheck className="h-5 w-5" />} title="IP + ID locked">
-            One IP and one student ID per date — no signing for friends.
+            One IP and one student ID per date no signing for friends.
           </Feature>
         </div>
       </main>

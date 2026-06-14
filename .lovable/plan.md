@@ -1,6 +1,6 @@
 ## What we're building
 
-A doctor signs in with Google, manages their courses, and generates a 1-minute QR code tied to a date + geofenced location. Students scan the QR, enter Name + Student ID, and the app records their attendance only if their IP and GPS location are within range and they haven't already signed in for that date.
+An instactor signs in with Google, manages their courses, and generates a 1-minute QR code tied to a date + geofenced location. Students scan the QR, enter Name + Student ID, and the app records their attendance only if their IP and GPS location are within range and they haven't already signed in for that date.
 
 ## Stack
 
