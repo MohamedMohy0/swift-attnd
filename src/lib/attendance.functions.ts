@@ -136,8 +136,7 @@ export const getPublicSession = createServerFn({ method: "GET" })
       targetLng: row.target_lng,
       radiusM: row.radius_m,
       expiresAt: row.expires_at,
-      // @ts-expect-error joined relation
-      courseName: row.courses?.name ?? "Course",
+      courseName: (row as { courses?: { name?: string } }).courses?.name ?? "Course",
     };
   });
 
