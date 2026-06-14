@@ -14,7 +14,131 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance_records: {
+        Row: {
+          course_id: string
+          created_at: string
+          doctor_id: string
+          id: string
+          ip_address: string
+          lat: number
+          lng: number
+          session_date: string
+          session_id: string
+          student_id: string
+          student_name: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          doctor_id: string
+          id?: string
+          ip_address: string
+          lat: number
+          lng: number
+          session_date: string
+          session_id: string
+          student_id: string
+          student_name: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          doctor_id?: string
+          id?: string
+          ip_address?: string
+          lat?: number
+          lng?: number
+          session_date?: string
+          session_id?: string
+          student_id?: string
+          student_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_records_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "attendance_records_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "attendance_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      attendance_sessions: {
+        Row: {
+          course_id: string
+          created_at: string
+          doctor_id: string
+          expires_at: string
+          id: string
+          radius_m: number
+          session_date: string
+          target_lat: number
+          target_lng: number
+          token: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          doctor_id: string
+          expires_at: string
+          id?: string
+          radius_m?: number
+          session_date: string
+          target_lat: number
+          target_lng: number
+          token?: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          doctor_id?: string
+          expires_at?: string
+          id?: string
+          radius_m?: number
+          session_date?: string
+          target_lat?: number
+          target_lng?: number
+          token?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_sessions_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          created_at: string
+          doctor_id: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          doctor_id: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          doctor_id?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
