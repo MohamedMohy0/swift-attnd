@@ -105,7 +105,7 @@ function CoursePage() {
   // Poll records every 3s while session active
   const { data: records = [] } = useQuery({
     queryKey: ["records", session?.id],
-    queryFn: () => listRecs({ data: { sessionId: session!.id } }),
+    queryFn: () => listRecs({ data: { sessionId: session!.id } }) as Promise<Array<{ id: string; student_name: string; student_id: string; ip_address: string; lat: number; lng: number; created_at: string }>>,
     enabled: !!session,
     refetchInterval: 3000,
   });
