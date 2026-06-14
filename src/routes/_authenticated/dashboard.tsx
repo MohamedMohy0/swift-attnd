@@ -21,7 +21,7 @@ function Dashboard() {
 
   const { data: courses = [], isLoading } = useQuery({
     queryKey: ["courses"],
-    queryFn: () => list({}),
+    queryFn: () => list({}) as Promise<Array<{ id: string; name: string; created_at: string }>>,
   });
 
   const mut = useMutation({
